@@ -8,10 +8,28 @@ import {Alert} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: 'black',
+        shadowColor: 'grey',
 
     },
+
+    questionNo: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        paddingTop: 5,
+        paddingBottom: 5,
+        backgroundColor: '#CDD1C4',
+    },
+
+    question: {
+        fontSize: 15,
+        textAlign: 'center',
+        paddingTop: 5,
+        paddingBottom: 5,
+
+    }
 });
 
 const InputBox = ({label, onChangeText})=> {
@@ -29,52 +47,24 @@ const MyApp = () => {
     const [second, setSecond] = useState('');
     const [third, setThird] = useState('');
 
-    // const submit = () => {
-    //     let totalCorrect = 0
-    //     if (first === 'owl') {
-    //         totalCorrect += 1
-    //     }
-    //     if (second === 'elephant') {
-    //         totalCorrect += 1
-    //     }
-    //     if (third === 'giraffe') {
-    //         totalCorrect += 1
-    //     }
-    //
-    //
-    //     if (totalCorrect === 3) {
-    //         Alert.alert("Well done! 3/3 correct")
-    //     }
-    //     if (totalCorrect === 2) {
-    //         Alert.alert("Nice try, 2/3 correct")
-    //     }
-    //     if (totalCorrect === 1) {
-    //         Alert.alert("Try again, 1/3 correct")
-    //     } else {
-    //         Alert.alert("0/3 correct :C")
-    //     }
-    // }
-
-
     return (
 
-        <View style={{alignItems: 'center'}}>
-            <Text></Text>
+        <View style={{alignItems: 'center', justifyContent: 'space-between'}}>
+            <Text style={{paddingTop: 10}}></Text>
             <Text></Text>
             <Text style={{fontSize: 35, fontWeight: "bold", alignContent: 'center'}}>
-                <Icon name="paw" size={30} color="#B23B23" />
-                ANIMAL QUIZ
-                <Icon name="paw" size={30} color="#B23B23" />
+                <Icon name="paw" size={30} color="#508CA4"/>
+                 ANIMAL QUIZ
+                <Icon name="paw" size={30} color="#508CA4" />
             </Text>
 
             <ScrollView>
                 <Text></Text>
 
                 <View style={styles.container}>
-                    <Text></Text>
-                    <Text>Question 1:</Text>
+                    <Text style={styles.questionNo}>Question 1:</Text>
                     <Image source={require('./img/owl.jpg')} style={{width:400, height:500}}></Image>
-                    <Text>What animal is this?</Text>
+                    <Text style={styles.question}>What animal is this?</Text>
                     <RNPickerSelect
                         onValueChange={(value) => setFirst(value)}
                         items={[
@@ -84,12 +74,12 @@ const MyApp = () => {
                         ]}
                     />
                 </View>
+                <Text></Text>
 
                 <View style={styles.container}>
-                    <Text></Text>
-                    <Text>Question 2:</Text>
+                    <Text style={styles.questionNo}>Question 2:</Text>
                     <Image source={require('./img/elephant.jpg')} style={{width:400, height:500}}></Image>
-                    <Text>What animal is this?</Text>
+                    <Text style={styles.question}>What animal is this?</Text>
                     <RNPickerSelect
                         onValueChange={(value) => setSecond(value)}
                         items={[
@@ -99,12 +89,12 @@ const MyApp = () => {
                         ]}
                     />
                 </View>
+                <Text></Text>
 
                 <View style={styles.container}>
-                    <Text></Text>
-                    <Text>Question 3:</Text>
+                    <Text style={styles.questionNo}>Question 3:</Text>
                     <Image source={require('./img/giraffe.jpg')} style={{width:400, height:500}}></Image>
-                    <Text>What animal is this?</Text>
+                    <Text style={styles.question}>What animal is this?</Text>
                     <RNPickerSelect
                         onValueChange={(value) => setThird(value)}
                         items={[
@@ -114,8 +104,9 @@ const MyApp = () => {
                         ]}
                     />
                 </View>
+                <Text></Text>
 
-                <Button onPress={() => {
+                <Button color={'#5C80BC'} onPress={() => {
                     const Correct1 = 'owl';
                     const Correct2 = 'elephant';
                     const Correct3 = 'giraffe';
